@@ -1,0 +1,47 @@
+
+
+=====Deploy the React Web App to a real server.====
+
+Remove node_modules folders.
+Remove any git files and folders.
+Upload with github desktop to github.
+Download using   git clone https://github.com/????.git   to server.
+
+modify the file server.js by adding
+
+/////////////////below//////////////////////
+const path = require('path');
+
+app.use(express.static(path.join(__dirname,'client','build')));
+
+app.get('/',(req,res) => {
+  res.sendFile(path.join(__dirname,'client','build','index.html'));
+});
+
+
+
+const PORT = process.env.PORT || 3003;   //3003 or whatever you want
+
+//////////////////above//////////////////////
+
+
+at root folder of project type    npm install
+go to client folder and type      npm install
+go to the client folder and type   npm run build
+the above will create the production version of the React client.
+now you can start the web app by typing in     node server.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
